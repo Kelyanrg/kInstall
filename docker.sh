@@ -2,7 +2,7 @@
 if command -v docker &> /dev/null
 then
   echo "Docker est déjà installé"
-  exit 1
+  exit 0
 fi
 
 if [ -f /etc/os-release ]; then
@@ -48,7 +48,7 @@ case "$OS" in
         ;;
 esac
 
-echo "$Démarrage et activation du service Docker..."
+echo "Démarrage et activation du service Docker..."
 systemctl enable --now docker
 
 echo "Docker a été installé avec succès sous la version $(docker --version)"
